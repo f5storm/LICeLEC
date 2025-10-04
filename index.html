@@ -471,7 +471,6 @@
             position: relative;
         }
         
-        /* New Progress Bar Styles */
         #progress-bar-container {
             width: 100%;
             max-width: 800px;
@@ -498,11 +497,11 @@
         #progress-label {
             text-align: center;
             margin-top: 0.75rem;
+            margin-bottom: 2rem; /* Adjusted Margin */
             font-weight: 500;
             color: var(--text-secondary);
         }
 
-        /* Question Counter Display */
         #question-counter-display {
             position: absolute;
             top: 1.5rem;
@@ -518,17 +517,10 @@
             color: white;
             transition: all 0.3s ease;
         }
-        #question-counter-display.facil-bg {
-            background-color: #22c55e; /* green-500 */
-        }
-        #question-counter-display.media-bg {
-            background-color: #f59e0b; /* amber-500 */
-        }
-        #question-counter-display.dificil-bg {
-            background-color: #ef4444; /* red-500 */
-        }
+        #question-counter-display.facil-bg { background-color: #22c55e; }
+        #question-counter-display.media-bg { background-color: #f59e0b; }
+        #question-counter-display.dificil-bg { background-color: #ef4444; }
 
-        /* Timer Display Styles */
         #timer-display {
             position: absolute;
             top: 1.5rem;
@@ -562,8 +554,6 @@
             70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
             100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
         }
-        
-        #modal-description { font-size: 1.05rem; color: var(--text-secondary); line-height: 1.7; padding: 0 2rem 2rem 2rem; }
         
         #quiz-question {
             font-size: 1.5rem;
@@ -600,10 +590,7 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
         }
         
-        .quiz-option.disabled {
-            cursor: not-allowed;
-            opacity: 0.7;
-        }
+        .quiz-option.disabled { cursor: not-allowed; opacity: 0.7; }
         
         .quiz-option.correct-answer {
             border-color: #22c55e;
@@ -619,6 +606,7 @@
             font-weight: 600;
         }
 
+        /* === NEW AND MODIFIED BUTTON STYLES === */
         #quiz-start-btn, #restart-quiz-btn {
             background: rgba(255, 255, 255, 0.4);
             backdrop-filter: blur(10px);
@@ -633,12 +621,27 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
         
-        #quiz-start-btn {
-            color: var(--text-primary);
+        #quiz-start-btn { color: var(--text-primary); }
+        #quiz-start-btn:disabled { 
+            cursor: not-allowed; 
+            background: rgba(226, 232, 240, 0.5);
+            color: #94a3b8;
         }
+
         #restart-quiz-btn {
             color: var(--extracelular-color);
              margin-top: 2rem;
+        }
+        
+        #reset-progress-btn {
+            color: #475569; /* slate-600 */
+            background: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
         }
 
         #quiz-start-btn:hover, #restart-quiz-btn:hover {
@@ -646,10 +649,14 @@
             background: rgba(255, 255, 255, 0.6);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
         }
-        
-        #quiz-results {
-             text-align: center;
+
+        #reset-progress-btn:hover {
+             color: var(--text-primary);
+             text-decoration: underline;
         }
+        /* === END NEW STYLES === */
+        
+        #quiz-results { text-align: center; }
         
         #quiz-results h3 {
              font-size: 2rem;
@@ -693,13 +700,8 @@
             transition: all 0.2s ease-in-out;
         }
 
-        .stat-correct {
-            background-color: rgba(34, 197, 94, 0.25); 
-        }
-
-        .stat-incorrect {
-            background-color: rgba(239, 68, 68, 0.25);
-        }
+        .stat-correct { background-color: rgba(34, 197, 94, 0.25); }
+        .stat-incorrect { background-color: rgba(239, 68, 68, 0.25); }
         
         #missed-topics-list {
             display: flex;
@@ -747,7 +749,6 @@
         <div class="dynamic-bg-glow" id="bg-desequilibrios"></div>
     </div>
 
-    <!-- Hero Section -->
     <section id="hero" class="section-container">
         <div class="section-header-card">
             <h1>A Dinâmica dos Líquidos Corporais</h1>
@@ -755,7 +756,6 @@
         </div>
     </section>
     
-    <!-- Fundamentals Section -->
     <section id="fundamentos" class="section-container">
         <div class="section-header-card">
             <h2 class="section-title">Fundamentos dos Compartimentos</h2>
@@ -770,7 +770,7 @@
                             <li>O corpo humano é composto por cerca de 60% de água, dividida em dois grandes compartimentos.</li>
                             <li><span class="term" data-description="É o líquido contido dentro das células. Corresponde a cerca de 2/3 (aprox. 28 litros) do total de água corporal e é rico em potássio (K+), magnésio (Mg++) e íons fosfato.">Líquido Intracelular (LIC)</span>: O oceano dentro das células.</li>
                             <li><span class="term" data-description="É todo o líquido fora das células. Corresponde a 1/3 (aprox. 14 litros) da água corporal e é rico em sódio (Na+), cloreto (Cl-) e bicarbonato (HCO3-).">Líquido Extracelular (LEC)</span>: O ambiente que banha as células.</li>
-                             <li>O LEC é subdividido em <span class="term" data-description="O líquido que preenche os espaços entre as células (aprox. 11 litros).">líquido intersticial</span> e <span class="term" data-description="A parte líquida do sangue (aprox. 3 litros).">plasma sanguíneo</span>.</li>
+                            <li>O LEC é subdividido em <span class="term" data-description="O líquido que preenche os espaços entre as células (aprox. 11 litros).">líquido intersticial</span> e <span class="term" data-description="A parte líquida do sangue (aprox. 3 litros).">plasma sanguíneo</span>.</li>
                         </ul>
                     </div>
                 </div>
@@ -788,7 +788,6 @@
                         <div class="image-bubble" id="svg-composicao-ionica" data-img-svg="true" data-img-alt="Gráfico de Composição Iônica" data-img-description="Este gráfico compara as concentrações dos principais íons nos compartimentos extracelular (rosa e azul) e intracelular (laranja, amarelo, verde). Note a predominância de Sódio (Na+) no LEC e de Potássio (K+) no LIC, uma diferença crucial mantida ativamente pelas células.">
                             <svg viewBox="0 0 350 400" xmlns="http://www.w3.org/2000/svg" class="text-sm font-sans" fill="#475569">
                                 <title>Gráfico de Composição Iônica LIC vs LEC</title>
-                                <!-- Axes and Labels -->
                                 <line x1="10" y1="200" x2="340" y2="200" stroke="#475569" stroke-width="1.5"></line>
                                 <line x1="175" y1="10" x2="175" y2="390" stroke="#475569" stroke-width="1.5" stroke-dasharray="4"></line>
                                 <g>
@@ -809,7 +808,6 @@
                                 <text x="15" y="305" text-anchor="end">100</text>
                                 <text x="15" y="355" text-anchor="end">150</text>
                                 <text x="5" y="205" text-anchor="middle" writing-mode="vertical-rl" font-size="0.8em">mEq/l</text>
-                                <!-- Extracellular Bars -->
                                 <rect x="30" y="58" width="40" height="142" fill="#fca5a5" stroke="#ef4444" stroke-width="1"></rect>
                                 <g>
                                     <rect x="35" y="182" width="30" height="18" rx="4" fill="rgba(255,255,255,0.85)"></rect>
@@ -835,7 +833,6 @@
                                     <rect x="265" y="162" width="60" height="18" rx="4" fill="rgba(255,255,255,0.85)"></rect>
                                     <text x="295" y="175" text-anchor="middle">Proteínas</text>
                                 </g>
-                                <!-- Intracellular Bars -->
                                 <rect x="80" y="200" width="30" height="145" fill="#fde047" stroke="#facc15" stroke-width="1"></rect>
                                 <g>
                                     <rect x="83" y="202" width="24" height="18" rx="4" fill="rgba(255,255,255,0.85)"></rect>
@@ -892,7 +889,6 @@
         </div>
     </section>
 
-    <!-- Capillary Exchange Section -->
     <section id="trocas" class="section-container">
          <div class="section-header-card">
             <h2 class="section-title">A Troca nos Capilares</h2>
@@ -922,7 +918,7 @@
                             </li>
                             <li class="flex justify-between items-center bg-rose-50 p-2 rounded-lg mb-2">
                                 <span><span class="term" data-description="A 'força osmótica' gerada pelas proteínas (principalmente albumina) no plasma. Tende a 'puxar' o líquido para dentro do capilar. (Πp)">Pressão Coloidosmótica Plasmática (Πp)</span>: Força de entrada.</span>
-                                 <span class="text-rose-600 font-bold flex items-center gap-1">Entrada
+                                <span class="text-rose-600 font-bold flex items-center gap-1">Entrada
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-left-circle" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M10.854 5.146a.5.5 0 0 0 0 .708L5.707 11H8.5a.5.5 0 0 0 0-1H4.5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 1 0V8.207l5.146-5.147a.5.5 0 0 0 0-.708"/>
                                     </svg>
@@ -930,7 +926,7 @@
                             </li>
                             <li class="flex justify-between items-center bg-blue-50 p-2 rounded-lg">
                                 <span><span class="term" data-description="A 'força osmótica' gerada por proteínas que escaparam para o interstício. Tende a 'puxar' o líquido para fora do capilar. (Πi)">Pressão Coloidosmótica Intersticial (Πi)</span>: Força de saída.</span>
-                                 <span class="text-blue-600 font-bold flex items-center gap-1">Saída
+                                <span class="text-blue-600 font-bold flex items-center gap-1">Saída
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right-circle" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.854 10.854a.5.5 0 0 0 .708 0L12 5.707V8.5a.5.5 0 0 0 1 0v-4a.5.5 0 0 0-.5-.5H8.5a.5.5 0 0 0 0 1h2.793L5.146 10.146a.5.5 0 0 0 0 .708"/>
                                     </svg>
@@ -940,8 +936,6 @@
                         <div class="image-bubble" id="svg-forcas-starling" data-img-svg="true" data-img-alt="Diagrama das Forças de Starling" data-img-description="Esta imagem ilustra as quatro Forças de Starling em um capilar. As setas indicam a direção de cada força: a Pressão Hidrostática Capilar (Pc) e a Coloidosmótica Intersticial (Πi) empurram o fluido para fora, enquanto a Pressão Coloidosmótica Plasmática (Πp) e a Hidrostática Intersticial (Pi) o trazem para dentro. O balanço entre elas determina se ocorrerá filtração ou absorção.">
                             <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg" class="text-sm font-sans" fill="#1e293b">
                                 <title>Diagrama das Forças de Starling</title>
-                        
-                                <!-- Defs for arrowheads -->
                                 <defs>
                                     <marker id="arrow-down" viewBox="0 0 10 10" refX="5" refY="10" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
                                         <path d="M 0 0 L 5 10 L 10 0 z" fill="black"></path>
@@ -950,29 +944,18 @@
                                         <path d="M 0 10 L 5 0 L 10 10 z" fill="black"></path>
                                     </marker>
                                 </defs>
-                        
-                                <!-- Capillary vessel -->
                                 <path d="M 25 80 H 575 V 180 H 25 Z" fill="#fca5a5" stroke="#b91c1c" stroke-width="1.5"></path>
                                 <rect x="25" y="80" width="550" height="100" fill="none" stroke="#b91c1c" stroke-width="2" stroke-dasharray="5 5"></rect>
-                                
-                                <!-- Text and Arrows -->
                                 <g text-anchor="middle" font-weight="500">
-                                    <!-- Pressão Capilar (Pc) -->
                                     <text x="180" y="55">Pressão capilar</text>
                                     <text x="180" y="70">(Pc)</text>
                                     <line x1="180" y1="75" x2="180" y2="105" stroke="black" stroke-width="2" marker-end="url(#arrow-down)"></line>
-                        
-                                    <!-- Pressão do Líquido Intersticial (Pi) -->
                                     <text x="180" y="210">Pressão do líquido</text>
                                     <text x="180" y="225">intersticial (Pi)</text>
                                     <line x1="180" y1="200" x2="180" y2="160" stroke="black" stroke-width="2" marker-end="url(#arrow-up)"></line>
-                        
-                                    <!-- Pressão Coloidosmótica Plasmática (Πp) -->
                                     <text x="420" y="55">Pressão coloidosmótica</text>
                                     <text x="420" y="70">plasmática (Πp)</text>
                                     <line x1="420" y1="105" x2="420" y2="75" stroke="black" stroke-width="2" marker-end="url(#arrow-up)"></line>
-                        
-                                    <!-- Pressão Coloidosmótica do Líquido Intersticial (Πi) -->
                                     <text x="420" y="210">Pressão coloidosmótica</text>
                                     <text x="420" y="225">do líquido intersticial (Πi)</text>
                                     <line x1="420" y1="160" x2="420" y2="200" stroke="black" stroke-width="2" marker-end="url(#arrow-down)"></line>
@@ -1023,7 +1006,6 @@
         </div>
     </section>
 
-    <!-- Fluid Imbalances Section -->
     <section id="desequilibrios" class="section-container">
         <div class="section-header-card">
             <h2 class="section-title">Desequilíbrios Hídricos</h2>
@@ -1068,13 +1050,12 @@
                             <li>Adição de solução <span class="term" data-description="Uma solução mais concentrada. A infusão de soro hipertônico 'puxa' a água de dentro das células, aumentando o volume do LEC e diminuindo o do LIC.">hipertônica</span>: Aumenta o volume do LEC e diminui o do LIC.</li>
                         </ul>
                          <div class="image-bubble" id="svg-darrow-yannet" data-img-svg="true" data-img-alt="Diagramas de Darrow-Yannet" data-img-description="Esses diagramas mostram como os volumes do LIC (rosa) e LEC (amarelo) e a osmolaridade total mudam em diferentes cenários. O estado normal é a referência. A adição de soluções isotônicas, hipertônicas ou hipotônicas altera os volumes e/ou a osmolaridade de maneiras distintas, demonstrando os princípios da osmose entre os compartimentos.">
-                           <svg viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg" class="font-sans">
+                            <svg viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg" class="font-sans">
                                 <title>Diagramas de Darrow-Yannet</title>
                                 <defs>
                                     <style>.label{font-size:12px; font-weight:600; text-anchor: middle;} .axis-label{font-size:10px; text-anchor: end;}</style>
                                 </defs>
 
-                                <!-- Diagram 1: Normal State -->
                                 <g transform="translate(0, 0)">
                                     <text x="120" y="20" class="label">Estado Normal</text>
                                     <path d="M40 30 V 280 H 200 V 30" stroke="black" stroke-width="1.5" fill="none"/>
@@ -1088,7 +1069,6 @@
                                     <text x="165" y="245" font-size="10px">LEC</text>
                                 </g>
 
-                                <!-- Diagram 2: Isotonic Addition -->
                                 <g transform="translate(250, 0)">
                                     <text x="120" y="20" class="label">Adição de Sol. Isotônica</text>
                                     <path d="M40 30 V 280 H 220 V 30" stroke="black" stroke-width="1.5" fill="none" stroke-dasharray="4 2"/>
@@ -1096,7 +1076,6 @@
                                     <rect x="130" y="80" width="90" height="150" fill="#fef08a" />
                                 </g>
 
-                                <!-- Diagram 3: Hypertonic Addition -->
                                 <g transform="translate(0, 300)">
                                     <text x="120" y="20" class="label">Adição de Sol. Hipertônica</text>
                                     <path d="M40 30 V 280 H 210 V 30" stroke="black" stroke-width="1.5" fill="none" stroke-dasharray="4 2"/>
@@ -1104,7 +1083,6 @@
                                     <rect x="120" y="30" width="90" height="200" fill="#fef08a" />
                                 </g>
 
-                                <!-- Diagram 4: Hypotonic Addition -->
                                 <g transform="translate(250, 300)">
                                     <text x="120" y="20" class="label">Adição de Sol. Hipotônica</text>
                                     <path d="M40 30 V 280 H 220 V 30" stroke="black" stroke-width="1.5" fill="none" stroke-dasharray="4 2"/>
@@ -1146,7 +1124,6 @@
         </div>
     </section>
 
-    <!-- Quiz Section -->
     <section id="quiz-section" class="section-container">
         <div class="section-header-card">
             <h2 class="section-title">Teste seu Conhecimento</h2>
@@ -1154,7 +1131,6 @@
         </div>
 
         <div id="quiz-area" class="w-full max-w-3xl flex flex-col items-center">
-             <!-- Progress Bar -->
             <div id="progress-bar-container">
                 <div id="progress-bar-fill" style="width: 0%;">0%</div>
             </div>
@@ -1166,6 +1142,7 @@
                 <h3 id="quiz-question"></h3>
                 <ul id="quiz-options"></ul>
             </div>
+
             <div id="quiz-results" class="quiz-container hidden">
                 <h3>Quiz Finalizado!</h3>
                 <div id="quiz-percentage">100%</div>
@@ -1177,16 +1154,18 @@
                 <ul id="missed-topics-list"></ul>
                  <button id="restart-quiz-btn">Novo Quiz</button>
             </div>
-            <button id="quiz-start-btn">Começar Quiz</button>
+
+            <div id="start-area" class="flex flex-col items-center">
+                 <button id="quiz-start-btn">Começar Quiz</button>
+                 <button id="reset-progress-btn">Zerar Progresso</button>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer-signature">
         <p>Feito por Rafael Chaves Sebe.</p>
     </footer>
 
-    <!-- Modal Structure -->
     <div id="modal-overlay" class="fixed inset-0">
         <div id="modal-content" class="relative">
              <button id="modal-close-btn" class="absolute top-4 right-4 z-20">&times;</button>
@@ -1194,8 +1173,7 @@
                 <h3 id="modal-title"></h3>
             </div>
             <div id="modal-image-container" class="hidden">
-                 <!-- SVG will be injected here by JS -->
-            </div>
+                </div>
             <p id="modal-description"></p>
         </div>
     </div>
@@ -1256,7 +1234,6 @@
                 setTimeout(() => {
                     if (!modalOverlay.classList.contains('visible')) {
                          document.body.style.overflow = '';
-                         // Limpa o conteúdo do gráfico ao fechar para evitar que o antigo apareça
                          modalImageContainer.innerHTML = '';
                     }
                 }, 400); 
@@ -1358,11 +1335,11 @@
             }
             
             // ===================================
-            // == QUIZ LOGIC V3 (com Timer e Progresso)
+            // == QUIZ LOGIC V4
             // ===================================
 
             const questionBank = [
-                // --- FÁCIL: 12 Teóricas + 8 Gráficas = 20 ---
+                 // --- FÁCIL: 12 Teóricas + 8 Gráficas = 20 ---
                 { id: 1, difficulty: 'Fácil', question: "Qual compartimento contém a maior parte da água corporal total (cerca de 2/3)?", topic: "LIC vs. LEC", options: ["Líquido intersticial", "Plasma sanguíneo", "Líquido extracelular (LEC)", "Líquido intracelular (LIC)"], correctAnswer: 3 },
                 { id: 2, difficulty: 'Fácil', question: "O Líquido Extracelular (LEC) é composto principalmente por quais dois fluidos?", topic: "LIC vs. LEC", options: ["Plasma e linfa", "Líquido intersticial e plasma", "Apenas plasma", "Apenas líquido dentro das células"], correctAnswer: 1 },
                 { id: 3, difficulty: 'Fácil', question: "Qual é o principal CÁTION (íon positivo) encontrado no Líquido Extracelular (LEC)?", topic: "Composição Iônica", options: ["Potássio (K+)", "Sódio (Na+)", "Cálcio (Ca++)", "Magnésio (Mg++)"], correctAnswer: 1 },
@@ -1396,7 +1373,7 @@
                 { id: 29, difficulty: 'Média', question: "Uma obstrução dos vasos linfáticos (linfedema) leva ao acúmulo de qual substância no interstício, piorando o edema?", topic: "O Papel do Sistema Linfático", options: ["Glicose", "Sódio", "Proteínas", "Hemácias"], correctAnswer: 2 },
                 { id: 30, difficulty: 'Média', question: "Uma falha na bomba de Na+/K+ devido à falta de ATP (depressão metabólica) causa edema intracelular por qual mecanismo?", topic: "Causas do Edema Intracelular", options: ["Aumenta o Na+ no LEC", "Aumenta o K+ no LEC", "Aumenta o Na+ no LIC, puxando água para dentro", "Diminui o Na+ no LIC, empurrando água para fora"], correctAnswer: 2 },
                 { id: 31, difficulty: 'Média', question: "Por que um paciente com policitemia (hematócrito muito alto) tem um risco aumentado de trombose?", topic: "Volume Sanguíneo e Hematócrito", options: ["O sangue fica menos viscoso", "Há poucas hemácias para transportar oxigênio", "O sangue fica mais viscoso, dificultando o fluxo", "O volume de plasma aumenta"], correctAnswer: 2 },
-                { id: 32, difficulty: 'Média', question: "Qual é a principal razão para não se corrigir a hiponatremia crônica de forma rápida?", topic: "Riscos da Correção Rápida", options: ["Risco de sobrecarga de volume e edema pulmonar", "Risco de lesão renal aguda", "Risco de síndrome de desmielinização osmótica", "Risco de hipoglicemia severa"], correctAnswer: 2 },
+                { id: 32, difficulty: 'Média', question: "Por que a correção rápida da hiponatremia crônica é perigosa?", topic: "Riscos da Correção Rápida", options: ["Risco de sobrecarga de volume e edema pulmonar", "Risco de lesão renal aguda", "Risco de síndrome de desmielinização osmótica", "Risco de hipoglicemia severa"], correctAnswer: 2 },
                 { id: 33, difficulty: 'Média', question: "A secreção excessiva de Aldosterona causa retenção de sódio. Qual seria o efeito secundário no volume do LEC?", topic: "Hiponatremia e Hipernatremia", options: ["Diminuição, pois o sódio é excretado", "Nenhum, pois a água não segue o sódio", "Aumento, pois a retenção de sódio leva à retenção de água", "O volume do LIC aumentaria mais"], correctAnswer: 2 },
                 { id: 34, difficulty: 'Média', question: "Qual a fórmula correta da Pressão Efetiva de Filtração (PEF)?", topic: "Filtração e Absorção", options: ["PEF = Pc + Pi + Πp + Πi", "PEF = Pc - Pi - Πp + Πi", "PEF = Πp - Pc", "PEF = Pc + Πi - Pi"], correctAnswer: 1 },
                 { id: 35, difficulty: 'Média', isGraphic: true, question: "No diagrama de Darrow-Yannet, após a adição de uma solução hipertônica, por que a osmolaridade de ambos os compartimentos aumenta?", topic: "Balanço Hídrico e Osmolaridade", options: ["Porque a água se move do LIC para o LEC", "Porque solutos são adicionados ao LEC e a água se move do LIC para o LEC para equilibrar", "Porque a célula produz mais solutos", "Porque os rins excretam água"], correctAnswer: 1, svgId: "svg-darrow-yannet" },
@@ -1431,6 +1408,8 @@
 
             const startBtn = document.getElementById('quiz-start-btn');
             const restartBtn = document.getElementById('restart-quiz-btn');
+            const resetBtn = document.getElementById('reset-progress-btn');
+            const startArea = document.getElementById('start-area');
             const quizContainer = document.getElementById('quiz-container');
             const resultsContainer = document.getElementById('quiz-results');
             const questionEl = document.getElementById('quiz-question');
@@ -1448,12 +1427,13 @@
 
             let questionTimer;
             let countdownInterval;
-            const TIMER_DURATION = 30; // seconds
+            const TIMER_DURATION = 30;
 
             function loadProgress() {
                 const savedProgress = localStorage.getItem('liclequiz_correctlyAnsweredIds');
                 correctlyAnsweredIds = savedProgress ? JSON.parse(savedProgress) : [];
                 updateProgressBar();
+                checkCompletion();
             }
 
             function saveProgress() {
@@ -1469,30 +1449,33 @@
                 progressBarFill.textContent = `${percentage}%`;
                 progressLabel.textContent = `Progresso: ${answeredCount} de ${totalQuestions} questões dominadas`;
             }
+
+            function checkCompletion() {
+                const availableQuestions = questionBank.filter(q => !correctlyAnsweredIds.includes(q.id));
+                if (availableQuestions.length === 0) {
+                    startBtn.disabled = true;
+                    startBtn.textContent = "Parabéns, você dominou tudo!";
+                } else {
+                    startBtn.disabled = false;
+                    startBtn.textContent = "Começar Quiz";
+                }
+            }
             
             function startQuiz() {
-                // Filtra as perguntas que o usuário ainda não acertou
                 const availableQuestions = questionBank.filter(q => !correctlyAnsweredIds.includes(q.id));
                 
-                // Se não houver mais perguntas, mostra uma mensagem
                 if (availableQuestions.length === 0) {
-                     resultsContainer.classList.remove('hidden');
-                     quizContainer.classList.add('hidden');
-                     startBtn.classList.add('hidden');
-                     document.getElementById('quiz-percentage').textContent = '🏆';
-                     document.getElementById('stat-correct-count').textContent = 'Parabéns!';
-                     document.getElementById('stat-incorrect-count').textContent = 'Você dominou tudo!';
-                     document.getElementById('missed-topics-list').innerHTML = '';
+                     checkCompletion();
                      return;
                 }
 
-                // Seleciona 20 perguntas aleatórias do pool disponível
                 activeQuiz = [...availableQuestions].sort(() => 0.5 - Math.random()).slice(0, 20);
                 
                 currentQuestionIndex = 0;
                 score = 0;
                 missedTopics = [];
-                startBtn.classList.add('hidden');
+                
+                startArea.classList.add('hidden');
                 resultsContainer.classList.add('hidden');
                 quizContainer.classList.remove('hidden');
                 showQuestion();
@@ -1504,7 +1487,7 @@
 
                 let timeLeft = TIMER_DURATION;
                 timerDisplay.textContent = timeLeft;
-                timerDisplay.className = 'absolute top-10 left-10 w-11 h-11 rounded-full bg-white/40 border-3 border-slate-600 flex items-center justify-center text-base font-bold text-slate-800 transition-all duration-300 ease-in-out';
+                timerDisplay.className = 'absolute top-1.5rem left-1.5rem w-11 h-11 rounded-full bg-white/40 border-3 border-slate-600 flex items-center justify-center text-base font-bold text-slate-800 transition-all duration-300 ease-in-out';
                 
                 countdownInterval = setInterval(() => {
                     timeLeft--;
@@ -1523,7 +1506,7 @@
             }
 
             function handleTimeUp() {
-                 selectAnswer(null); // Pass null to indicate time's up
+                 selectAnswer(null);
             }
 
             function showQuestion() {
@@ -1534,7 +1517,6 @@
                 }
                 const questionData = activeQuiz[currentQuestionIndex];
 
-                // Update question counter display and color
                 questionCounterDisplay.textContent = `${currentQuestionIndex + 1}/${activeQuiz.length}`;
                 questionCounterDisplay.classList.remove('facil-bg', 'media-bg', 'dificil-bg');
                 if (questionData.difficulty === 'Fácil') {
@@ -1545,8 +1527,6 @@
                     questionCounterDisplay.classList.add('dificil-bg');
                 }
 
-
-                // Add SVG if it exists for the question
                 if (questionData.isGraphic && questionData.svgId) {
                     const svgContainer = document.getElementById(questionData.svgId);
                     if (svgContainer) {
@@ -1592,7 +1572,6 @@
                 clearInterval(countdownInterval);
 
                 const selectedOption = e ? e.target : null;
-                // Disable all options after one is clicked
                 Array.from(optionsEl.children).forEach(option => option.removeEventListener('click', selectAnswer));
 
                 const currentQuestion = activeQuiz[currentQuestionIndex];
@@ -1614,7 +1593,6 @@
                     score++;
                     if(selectedOption) selectedOption.classList.add('correct-answer');
                     document.body.classList.add('correct-bg');
-                    // Add question ID to correctly answered list and save
                     if (!correctlyAnsweredIds.includes(currentQuestion.id)) {
                         correctlyAnsweredIds.push(currentQuestion.id);
                         saveProgress();
@@ -1653,16 +1631,13 @@
                 
                 if (missedTopics.some(t => t)) {
                      const uniqueMissedTopics = [...new Set(missedTopics.filter(t => t))];
-                     
                      uniqueMissedTopics.forEach(topicName => {
                          const targetCard = Array.from(document.querySelectorAll('.topic-card .summary'))
                              .find(s => s.textContent.trim() === topicName)?.parentElement;
-
                          if (targetCard) {
                              const bubble = document.createElement('li');
                              bubble.textContent = topicName;
                              bubble.classList.add('missed-topic-bubble');
-
                              bubble.addEventListener('click', (e) => {
                                  e.currentTarget.classList.add('visited-topic');
                                  targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -1683,12 +1658,27 @@
                      }
                      missedListEl.appendChild(congrats);
                 }
+                 checkCompletion();
+            }
+            
+            function resetProgress() {
+                if (confirm("Você tem certeza que deseja zerar todo o seu progresso? Esta ação não pode ser desfeita.")) {
+                    localStorage.removeItem('liclequiz_correctlyAnsweredIds');
+                    correctlyAnsweredIds = [];
+                    updateProgressBar();
+                    checkCompletion();
+                    alert("Seu progresso foi zerado com sucesso!");
+                }
             }
 
             startBtn.addEventListener('click', startQuiz);
-            restartBtn.addEventListener('click', startQuiz);
+            restartBtn.addEventListener('click', () => {
+                resultsContainer.classList.add('hidden');
+                startArea.classList.remove('hidden');
+                checkCompletion();
+            });
+            resetBtn.addEventListener('click', resetProgress);
 
-            // Initial load of progress
             loadProgress();
         });
     </script>
